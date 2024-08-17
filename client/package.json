@@ -1,0 +1,46 @@
+{
+    "name": "learning-vue",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "run-p type-check \"build-only {@}\" --",
+        "preview": "vite preview",
+        "build-only": "vite build",
+        "type-check": "vue-tsc --build --force",
+        "server": "npx json-server db.json --watch --port 3000"
+    },
+    "dependencies": {
+        "@heroicons/vue": "^2.1.5",
+        "@tailwindcss/forms": "^0.5.7",
+        "@types/cors": "^2.8.17",
+        "@vuepic/vue-datepicker": "^9.0.2",
+        "axios": "^1.7.3",
+        "date-fns": "^3.6.0",
+        "json-server": "^1.0.0-beta.1",
+        "pinia": "^2.2.1",
+        "ts-node": "^10.9.2",
+        "vue": "^3.4.36",
+        "vue-router": "^4.4.3",
+        "vue-sonner": "^1.1.4",
+        "vue-spinner": "^1.0.4"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.14",
+        "@tsconfig/node20": "^20.1.4",
+        "@types/node": "^22.1.0",
+        "@vitejs/plugin-vue": "^5.1.2",
+        "@vue/tsconfig": "^0.5.1",
+        "autoprefixer": "^10.4.20",
+        "npm-run-all2": "^6.2.2",
+        "postcss": "^8.4.41",
+        "prettier": "^3.3.3",
+        "prettier-plugin-tailwindcss": "^0.6.5",
+        "tailwindcss": "^3.4.8",
+        "typescript": "~5.5.4",
+        "vite": "5.4.0",
+        "vite-plugin-vue-devtools": "^7.3.7",
+        "vue-tsc": "^2.0.29"
+    }
+}

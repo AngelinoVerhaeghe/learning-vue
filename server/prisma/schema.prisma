@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// Get migrations and run them with
+// npx prisma migrate dev --name add_user_model
+
+// Add a new field to your schema and generate a migration for it:
+// npx prisma migrate dev --name add_date_to_post
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  first_name String
+  last_name  String
+  user_name  String   @unique
+  email      String   @unique
+  password   String
+  is_active  Boolean  @default(true)
+  posts      Post[]
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+model Post {
+  id           Int      @id @default(autoincrement())
+  title        String
+  slug         String   @unique
+  description  String
+  image        String
+  author_id    Int
+  author       User     @relation(fields: [author_id], references: [id])
+  tags         Tag[]    @relation("TagToPost")
+  is_published Boolean  @default(false)
+  date         DateTime
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  tag   String @unique
+  posts Post[] @relation("TagToPost")
+}

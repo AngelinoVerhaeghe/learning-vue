@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "types": [
+      "vue3-toastify/global"
+    ]
+  },
+  "allowJs": true,
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ]
+}
